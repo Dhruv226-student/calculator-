@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc mad by dk💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class=" calculator">
+        <input type="text" class="center" placeholder="0" id="resultInput" readonly>
+        <div class="container">
+            <div>
+                <button class="button operator" onclick="clearResult()">AC</button>
+                <button class="button operator" onclick="deleteLastChar()">DEL</button>
+                <button class="button operator" onclick="showResult('%')">%</button>
+                <button class="button operator" onclick="showResult('/')">/</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="showResult('7')">7</button>
+                <button type="button" onclick="showResult('8')">8</button>
+                <button type="button" onclick="showResult('9')">9</button>
+                <button class="operator" type="button" onclick="showResult('*')">X</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="showResult('4')">4</button>
+                <button type="button" onclick="showResult('5')">5</button>
+                <button type="button" onclick="showResult('6')">6</button>
+                <button class="operator" type="button" onclick="showResult('-')">-</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="showResult('1')">1</button>
+                <button type="button" onclick="showResult('2')">2</button>
+                <button type="button" onclick="showResult('3')">3</button>
+                <button class="operator" type="button" onclick="showResult('+')">+</button>
+            </div>
+            <div class="row">
+                <button type="button" onclick="showResult('0')">0</button>
+                <button type="button" onclick="showResult('.')">.</button>
+                <button type="button" onclick="showResult('00')">00</button>
+                <button class="button equalbtn" type="button" onclick="calculate('=')">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        //get input value
+        const resultInput = document.getElementById('resultInput');
+        // get input result
+        function showResult(text) {
+            resultInput.value += text;
+        }
+        //calculate
+        function calculate() {
+            try {
+                const result = eval(resultInput.value);
+                resultInput.value = result;
+            }
+            catch (error) {
+                resultInput.value = 'error';
+            }
+        }
+        //cler inpu
+        //cler input
+
+        function clearResult(){
+            resultInput.value = '';
+        }
+        function deleteLastChar(){
+      var currentValue = resultInput.value;
+             resultInput.value = currentValue.slice(0, -1);
+        }
+
+    </script>
+</body>
+
+</html>
